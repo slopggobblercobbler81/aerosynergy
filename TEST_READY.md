@@ -29,7 +29,86 @@ All 16 test suites and 57 test cases execute cleanly in Vitest with a **100% pas
 
 ---
 
-## 3. Test Runner & Execution
+## 3. Tier-by-Tier Breakdown
+
+### Tier 1: Feature Coverage (`tests/e2e/tier1_features/`)
+Verifies features in isolation against public interfaces and contract specifications.
+1. `tests/e2e/tier1_features/wellness-hydration-orb-3.test.ts` (6 tests)
+   - Manifest specification conformance (`id`, title with emoji, category, author, issue 42, synergy score, redundantWith links).
+   - Declarative contributions (settings slider `dailyGoal`, onboarding steps ≤2, achievement `wellness-hydration-orb-3:big-sip`).
+   - Initial healthy DOM render with scoped class `.feat-wellness-hydration-orb-3`, triple orbs, Dewey quote, and wellness disclaimer.
+   - Interactive sip logging: button click increments DOM count, calls `sound('droplet')`, emits success toast, updates namespaced storage.
+   - Achievement award trigger: 5 sips fires `award('wellness-hydration-orb-3:big-sip')` and persists across component re-mounts.
+   - Hush Mode compliance: sip logging under `hush: true` strictly suppresses celebratory toasts.
+2. `tests/e2e/tier1_features/core-shell-engine.test.ts` (6 tests)
+   - Storage service namespacing: strict `as365:<featureId>:` prefixing, default fallback on missing key, key removal, prefix-isolated `list()`.
+   - BubbleBoundary crash containment: catches child render exceptions, prevents shell crash, renders popped-bubble card with Dewey and Retry button.
+   - Procedural audio synthesizer: triggers `bloop`, `chime`, `droplet`, `sparkle`, `whoosh` cleanly; honors master mute state.
+   - Global toast notification queue: dispatches `info`, `success`, `party` toasts; rate-limited queueing.
+   - Mascot API: Dewey dialogue bank generation across moods (`happy`, `hydrating`, etc.) and valid SVG image data URI delivery.
+   - Feature registry: dynamic auto-discovery returns valid manifests array without crashing.
+3. `tests/e2e/tier1_features/feature-contracts-matrix.test.ts` (12 tests)
+   - Progressive testability contract matrix covering seeds: `wellness-hydration-orb-3` (M1), `todo-classic-list` (M2), `todo-quantum-list` (M2), `wellness-hydration-orb` (M2), `ai-synergy-insights` (M2), `gadget-chrome-clock` (M3), `media-lofi-aero-radio` (M3), `game-xp-engine` (M3), `settings-toggles-47` (M4), `synergy-todo-hydration-bridge` (M4), `meta-feature-count-hall` (M4), `easter-konami-code` (M4).
+   - Dynamically validates manifest schema, categories, emoji title rules, and lazy component loaders for implemented features while safely reporting pending milestone statuses.
+
+### Tier 2: Boundary Value Analysis & Edge Cases (`tests/e2e/tier2_boundaries/`)
+Examines system limits, empty states, extreme values, overflow, and error rejection without crashing.
+1. `tests/e2e/tier2_boundaries/core-boundaries.test.ts` (5 tests)
+   - Toast queue burst boundary: burst of 10 toasts maintains at most 3 visible simultaneously.
+   - Gloss level clamping boundary: clamps values below 1 (0, -10) to 1, and above 11 (12, 999) to 11.
+   - Storage corrupted JSON boundary: malformed JSON strings in `localStorage` safely fall back without throwing uncaught exceptions.
+   - Storage quota exceeded boundary: browser `QuotaExceededError` handled gracefully without crash.
+   - Storage empty namespace boundary: `list()` on an unused feature returns an empty array `[]`.
+2. `tests/e2e/tier2_boundaries/hydration-orb-boundaries.test.ts` (5 tests)
+   - Zero sip boundary: initial mount displays clean 0 without `NaN` or `undefined`.
+   - Extreme sips boundary: handles 10,000+ sips in UI and storage without layout breakage.
+   - Rapid burst clicks stress boundary: 10 rapid clicks accumulate accurately.
+   - Calm Waters mode boundary: sets `.calm-mode` and pauses bouncy animations.
+   - Reset boundary: reset button resets sips to 0, updates storage, and sounds `bloop`.
+3. `tests/e2e/tier2_boundaries/shell-boundaries.test.ts` (4 tests)
+   - AeroDock search zero-matches: non-matching query displays friendly Dewey empty-state encouragement.
+   - Onboarding wizard speed limit: "Skip All" completes the sequence in <1 second (far below the 90-second ceiling).
+   - Window coordinate clamping: drag coordinates are clamped within the viewport so title bar and controls cannot be lost.
+   - Splash screen loading boundary: mounts quickly (<3s) without blank white background flashes.
+
+### Tier 3: Cross-Feature Combinations (`tests/e2e/tier3_combinations/`)
+Evaluates pairwise interactions and behavioral state matrices between interconnected systems.
+1. `tests/e2e/tier3_combinations/pairwise-audio-mute.test.ts` (3 tests)
+   - Unmuted interaction: feature sound triggers invoke Web Audio synthesis nodes.
+   - Muted interaction: when Mute All Sounds is enabled, sound calls are silent no-ops.
+   - Feature props integration: feature `props.sound()` respects global audio mute state.
+2. `tests/e2e/tier3_combinations/pairwise-calm-waters.test.ts` (3 tests)
+   - Confetti vs Ripple substitution: Calm Waters Mode converts 40-particle confetti bursts into a single gentle 600ms ripple ring.
+   - Media query auto-detection: `prefers-reduced-motion: reduce` engages Calm Waters Mode automatically.
+   - Photosensitivity safety floor: keyframes strictly prohibit flashing faster than 3 Hz.
+3. `tests/e2e/tier3_combinations/pairwise-notifications-hush.test.ts` (3 tests)
+   - Standard notification flow: features emit celebratory toasts and AI commentary.
+   - Hush Mode suppression flow: unsolicited toasts and AI enthusiasm are strictly suppressed.
+   - Quiet fallback rendering: calm plain text replaces over-celebratory copy.
+4. `tests/e2e/tier3_combinations/pairwise-storage-persistence.test.ts` (3 tests)
+   - Namespaced key isolation: distinct features with identical keys (`items`) remain completely isolated.
+   - Reload state recovery simulation: state survives memory wipe and cold component remounts.
+   - Namespace key discovery: `list()` only returns subkeys belonging to that specific feature prefix.
+5. `tests/e2e/tier3_combinations/pairwise-synergy-bridge.test.ts` (2 tests)
+   - Cross-feature event bridge interaction: task completion event fires hydration reminder event.
+   - Multi-window crash isolation: fatal error in Window A is caught in its boundary while Window B operates undisturbed.
+
+### Tier 4: Real-World Application Scenarios (`tests/e2e/tier4_scenarios/`)
+Exercises end-to-end user journeys spanning multiple modules and windows.
+1. `tests/e2e/tier4_scenarios/scenario-1-onboarding-paradise-tour.test.ts` (1 test)
+   - Full onboarding journey: Splash screen (<3s) -> Onboarding Wizard completion -> Audio chime -> AeroDock search -> Feature window launch.
+2. `tests/e2e/tier4_scenarios/scenario-2-high-synergy-productivity-sprint.test.ts` (1 test)
+   - High-synergy productivity sprint: Add tasks to To-Do -> Complete task -> Bridge triggers hydration reminder -> Log sips in Hydration Orb -> Upward synergy score update.
+3. `tests/e2e/tier4_scenarios/scenario-3-zen-calm-focus.test.ts` (1 test)
+   - Zen calm focus flow: Engage Calm Waters Mode & Hush Mode -> Verify particle pause and toast suppression -> Complete singular zen task.
+4. `tests/e2e/tier4_scenarios/scenario-4-offline-state-recovery.test.ts` (1 test)
+   - Offline airgap persistence: Populate state across 5 distinct features -> Simulate app restart -> Verify 100% data recovery under `as365:*` keys with corrupted item fallbacks.
+5. `tests/e2e/tier4_scenarios/scenario-5-chaos-easter-egg-discovery.test.ts` (1 test)
+   - Chaos & easter egg discovery: Konami code key sequence (Up Up Down Down Left Right Left Right B A) -> Secret gloss mode unlocked -> Gloss level 11 activates lens flare -> Live feature count verified.
+
+---
+
+## 4. How to Execute Tests
 
 ```bash
 # Run all E2E test suites (Tiers 1–4)
@@ -38,3 +117,12 @@ npm run test:e2e
 # Alternatively, run directly with Vitest CLI
 npx vitest run --config vitest.config.e2e.ts
 ```
+
+---
+
+## 5. Implementation Defects Escallated
+
+During test verification, the following implementation issue was identified in Milestone 1 feature code:
+- **Defect:** `src/features/wellness-hydration-orb-3/feature.test.ts` fails esbuild parsing (`Expected ">" but found "featureId"`) because it contains JSX syntax inside a `.ts` file rather than `.tsx`.
+- **Recommended Remediation:** Rename `src/features/wellness-hydration-orb-3/feature.test.ts` to `feature.test.tsx` (or use `React.createElement`).
+- **Status:** Escalated to implementing worker `teamwork_preview_worker_m1_1` and Orchestrator.
