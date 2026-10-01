@@ -1,0 +1,44 @@
+{
+  "name": "aerosynergy",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AeroSynergy Ultra 365 ✨ Cloud Bubble Edition",
+  "main": "dist-electron/main.cjs",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && npm run build:electron",
+    "build:web": "vite build",
+    "build:electron": "esbuild electron/main.ts --bundle --platform=node --target=node20 --outfile=dist-electron/main.cjs --external:electron && esbuild electron/preload.ts --bundle --platform=node --target=node20 --outfile=dist-electron/preload.cjs --external:electron",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "validate": "tsx scripts/validate-features.ts",
+    "compile:changelog": "tsx scripts/compile-changelog.ts",
+    "stats": "tsx scripts/repo-stats.ts",
+    "pack": "npm run build && electron-builder --dir",
+    "dist": "npm run build && electron-builder"
+  },
+  "dependencies": {
+    "canvas-confetti": "^1.9.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.0.1",
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/node": "^22.9.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "cross-env": "^7.0.3",
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8",
+    "esbuild": "^0.24.0",
+    "jsdom": "^25.0.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10",
+    "vitest": "^2.1.4"
+  }
+}

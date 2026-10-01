@@ -1,0 +1,18 @@
+{
+  "appId": "com.aerosynergy.ultra365",
+  "productName": "AeroSynergy Ultra 365",
+  "directories": {
+    "output": "dist-electron-package"
+  },
+  "files": [
+    "dist/**/*",
+    "dist-electron/**/*"
+  ],
+  "win": {
+    "target": ["portable", "nsis"],
+    "artifactName": "AeroSynergy-Ultra-365-${version}-${target}.${ext}"
+  },
+  "portable": {
+    "artifactName": "AeroSynergy-Ultra-365-${version}-portable.exe"
+  }
+}
