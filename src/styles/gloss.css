@@ -1,0 +1,177 @@
+/* Frutiger Aero Gloss Recipes per §7.2, §9.2 */
+
+/* Focus Ring per §13.1, §16 */
+:focus-visible {
+  outline: 2px solid var(--aqua-glow);
+  outline-offset: 2px;
+  box-shadow: 0 0 10px var(--aqua-bright);
+}
+
+/* Glass Panel Recipe */
+.glass-panel {
+  background: var(--glass-white);
+  backdrop-filter: blur(12px) saturate(1.3);
+  -webkit-backdrop-filter: blur(12px) saturate(1.3);
+  border: 1px solid var(--glass-rim);
+  border-top: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 
+    0 8px 32px var(--shadow-soft),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    inset 0 -1px 0 rgba(11, 79, 138, 0.1);
+  border-radius: 14px;
+  color: var(--text-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Frost Variant */
+.glass-panel-frost {
+  background: var(--glass-frost);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border: 1px solid var(--glass-rim);
+  box-shadow: 0 12px 36px var(--shadow-soft);
+}
+
+/* Chrome Titlebar */
+.chrome-titlebar {
+  background: linear-gradient(180deg, #FFFFFF 0%, var(--chrome-light) 40%, var(--chrome-mid) 95%, var(--chrome-deep) 100%);
+  border-bottom: 1px solid rgba(11, 79, 138, 0.3);
+  color: var(--text-primary);
+  font-weight: 700;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+  box-shadow: inset 0 1px 0 #FFFFFF;
+}
+
+/* Glossy Orb Button */
+.gloss-orb {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border-radius: 9999px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 14px;
+  color: #FFFFFF;
+  text-shadow: 0 1px 2px rgba(10, 42, 67, 0.6);
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: radial-gradient(circle at 50% 20%, var(--sky-clear) 0%, var(--sky-morning) 60%, var(--sky-deep) 100%);
+  box-shadow:
+    0 4px 15px var(--shadow-soft),
+    inset 0 1px 1px rgba(255, 255, 255, 0.9),
+    inset 0 -2px 4px rgba(10, 42, 67, 0.4);
+  transition: all var(--dur-fast) var(--ease-bubble);
+  user-select: none;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.gloss-orb::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 15%;
+  width: 70%;
+  height: 45%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.05) 100%);
+  border-radius: 50% 50% 40% 40% / 60% 60% 30% 30%;
+  pointer-events: none;
+}
+
+.gloss-orb:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow:
+    0 6px 20px rgba(0, 200, 230, 0.4),
+    inset 0 1px 2px rgba(255, 255, 255, 1),
+    inset 0 -2px 4px rgba(10, 42, 67, 0.4);
+  filter: brightness(1.06);
+}
+
+.gloss-orb:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow:
+    0 2px 8px var(--shadow-soft),
+    inset 0 2px 4px rgba(10, 42, 67, 0.6);
+}
+
+/* Chrome Text */
+.chrome-text {
+  background: linear-gradient(180deg, #FFFFFF 0%, var(--chrome-light) 40%, var(--chrome-deep) 90%, #203545 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 1px 2px rgba(10, 42, 67, 0.4));
+  font-weight: 800;
+}
+
+/* Water Droplet Badge */
+.drop-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  background: radial-gradient(circle at 40% 30%, var(--aqua-glow) 0%, var(--aqua-bright) 50%, var(--sky-morning) 100%);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 12px;
+  text-shadow: 0 1px 1px rgba(10, 42, 67, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 3px 10px rgba(0, 200, 230, 0.3), inset 0 2px 3px rgba(255, 255, 255, 0.85);
+  position: relative;
+}
+
+.drop-badge::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 20%;
+  width: 30%;
+  height: 25%;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+}
+
+/* Floor Reflection */
+.floor-reflect {
+  position: relative;
+}
+
+.floor-reflect::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, transparent 100%);
+  transform: scaleY(-1);
+  filter: blur(2px);
+  pointer-events: none;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
+}
+
+/* Calm Waters Mode Overrides (§4.5.6, §7.4, §16) */
+.calm-waters * {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.calm-waters .floor-reflect::after {
+  display: none;
+}

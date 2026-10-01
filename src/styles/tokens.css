@@ -1,0 +1,51 @@
+/* 27 Canonical Design Tokens per §7.1 */
+:root {
+  /* Sky & Deep Blues */
+  --sky-deep: #0B4F8A;
+  --sky-morning: #1E90D6;
+  --sky-clear: #4FC3F7;
+  --sky-horizon: #A6E1FF;
+  --sky-dawn: #E3F6FF;
+
+  /* Aqua & Glows */
+  --aqua-bright: #00C8E6;
+  --aqua-glow: #5EE7FF;
+  --aqua-mist: #B3F0FF;
+
+  /* Glass Fills & Rims */
+  --glass-white: rgba(255, 255, 255, 0.55);
+  --glass-frost: rgba(235, 248, 255, 0.75);
+  --glass-rim: rgba(255, 255, 255, 0.85);
+
+  /* Chrome Gradients */
+  --chrome-light: #E8F0F5;
+  --chrome-mid: #AFC3CE;
+  --chrome-deep: #6D8391;
+
+  /* Nature & Accents */
+  --lime-fresh: #7BE05A;
+  --grass-meadow: #3D9B32;
+  --leaf-shadow: #1F5C1F;
+  --sunset-amber: #FFB55C;
+  --sunset-coral: #FF8A70;
+  --sunset-lavender: #C6A5F2;
+
+  /* Aurora Gradient Stops */
+  --aurora-1: #35E0C8;
+  --aurora-2: #57B9FF;
+  --aurora-3: #A18CFF;
+
+  /* Text & Scrims */
+  --text-primary: #0A2A43;
+  --text-on-glass: #0A2A43;
+  --text-muted: #3E6B8C;
+  --scrim: rgba(10, 42, 67, 0.35);
+  --shadow-soft: rgba(11, 79, 138, 0.25);
+
+  /* Motion Tokens */
+  --dur-fast: 150ms;
+  --dur-med: 320ms;
+  --dur-slow: 900ms;
+  --ease-bubble: cubic-bezier(.34, 1.56, .64, 1);
+  --ease-ripple: cubic-bezier(.2, .8, .2, 1);
+}
