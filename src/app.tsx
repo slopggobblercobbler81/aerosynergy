@@ -13,7 +13,7 @@ import {
   GlobalSettingsState,
 } from './core/settings';
 
-import { FloatingBubbles } from './shell/backgrounds/FloatingBubbles';
+import { ProceduralBackground } from './shell/backgrounds';
 import { AeroDock } from './shell/AeroDock';
 import { Window } from './shell/Window';
 import { SplashScreen } from './shell/SplashScreen';
@@ -146,8 +146,8 @@ export const App: React.FC = () => {
         overflowX: 'hidden',
       }}
     >
-      {/* Background */}
-      <FloatingBubbles calm={settings.calmWaters} />
+      {/* Procedural Aero Background (Sky, Rays, Aurora, Fish, Caustics, Hills, Bubbles) */}
+      <ProceduralBackground calm={settings.calmWaters} />
 
       {/* Splash Screen (<3s) */}
       {showSplash && (
@@ -274,6 +274,7 @@ export const App: React.FC = () => {
           mascot: {
             say: (m) => mascot.say(m as any),
             image: (m) => mascot.image(m as any),
+            getPhrase: (c) => mascot.getPhrase(c),
           },
           theme: themeTokens,
           hush: settings.hushMode,
