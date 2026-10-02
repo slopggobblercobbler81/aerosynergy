@@ -1,0 +1,119 @@
+/* Scoped styles for ai-motivational-quotes per §7.2, §14.2 */
+
+.feat-ai-motivational-quotes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  padding: 8px;
+}
+
+.feat-ai-motivational-quotes .beta-forever-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--glass-rim);
+  border-radius: 999px;
+  padding: 3px 12px;
+  color: var(--sky-deep);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+.feat-ai-motivational-quotes .beta-tag {
+  font-weight: 700;
+  color: #0b4f8a;
+}
+
+.feat-ai-motivational-quotes .beta-motto {
+  font-style: italic;
+  color: var(--sky-morning);
+}
+
+.feat-ai-motivational-quotes .quote-display-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.85), rgba(227, 246, 255, 0.75));
+  border: 2px solid var(--aqua-bright);
+  border-radius: 16px;
+  padding: 16px;
+  max-width: 320px;
+  box-shadow:
+    0 8px 24px rgba(0, 200, 230, 0.25),
+    inset 0 2px 4px rgba(255, 255, 255, 0.95);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.feat-ai-motivational-quotes .quote-sparkle-decor {
+  font-size: 14px;
+}
+
+.feat-ai-motivational-quotes .quote-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0b4f8a;
+  line-height: 1.45;
+  margin: 0;
+  font-family: var(--font-heading);
+}
+
+.feat-ai-motivational-quotes .quote-author-tag {
+  font-size: 11px;
+  color: var(--sky-morning);
+  font-style: italic;
+}
+
+.feat-ai-motivational-quotes .vibe-indicator {
+  font-size: 12px;
+  color: var(--sky-deep);
+}
+
+.feat-ai-motivational-quotes .dewey-cheer {
+  font-size: 12px;
+  color: var(--sky-deep);
+  background: rgba(255, 255, 255, 0.7);
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-style: italic;
+  border: 1px solid var(--glass-rim);
+  max-width: 290px;
+}
+
+.feat-ai-motivational-quotes .button-tray {
+  display: flex;
+  gap: 10px;
+}
+
+.feat-ai-motivational-quotes .quote-btn {
+  border-radius: 999px;
+  border: 1px solid var(--glass-rim);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 18px;
+  font-size: 12px;
+  transition: transform 0.15s ease;
+}
+
+.feat-ai-motivational-quotes .quote-btn:active {
+  transform: translateY(1px);
+}
+
+.feat-ai-motivational-quotes .generate-btn {
+  background: radial-gradient(circle at 50% 25%, #5ee7ff 0%, #00c8e6 60%, #1e90d6 100%);
+  color: #0b4f8a;
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.9), 0 4px 12px rgba(0, 200, 230, 0.35);
+}
+
+.feat-ai-motivational-quotes .copy-btn {
+  background: radial-gradient(circle at 50% 20%, #afc3ce 0%, #6d8391 100%);
+  color: #ffffff;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.7);
+}
+
+.feat-ai-motivational-quotes .oracle-disclaimer {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-style: italic;
+}

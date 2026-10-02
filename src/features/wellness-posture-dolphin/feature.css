@@ -1,0 +1,167 @@
+/* Scoped styles for wellness-posture-dolphin per §7.2, §14.2 */
+
+.feat-wellness-posture-dolphin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  padding: 8px;
+  position: relative;
+}
+
+.feat-wellness-posture-dolphin .dolphin-header {
+  margin-bottom: 2px;
+}
+
+.feat-wellness-posture-dolphin .cadence-pill {
+  font-size: 11px;
+  color: var(--sky-deep);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--glass-rim);
+  border-radius: 999px;
+  padding: 4px 14px;
+}
+
+.feat-wellness-posture-dolphin .dolphin-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin: 6px 0;
+}
+
+.feat-wellness-posture-dolphin .dolphin-avatar {
+  width: 140px;
+  height: 100px;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: featDolphinBob 3s ease-in-out infinite alternate;
+}
+
+.feat-wellness-posture-dolphin.calm-mode .dolphin-avatar {
+  animation: none !important;
+}
+
+.feat-wellness-posture-dolphin .dolphin-avatar.arching-upright {
+  transform: translateY(-8px) scale(1.08);
+}
+
+.feat-wellness-posture-dolphin .spine-alignment-status {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--sky-morning);
+}
+
+.feat-wellness-posture-dolphin .reminder-text {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--sky-deep);
+}
+
+.feat-wellness-posture-dolphin .counter-row {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.feat-wellness-posture-dolphin .mascot-whisper {
+  font-size: 12px;
+  color: var(--sky-deep);
+  background: rgba(255, 255, 255, 0.7);
+  padding: 6px 14px;
+  border-radius: 12px;
+  font-style: italic;
+  border: 1px solid var(--glass-rim);
+  max-width: 280px;
+}
+
+.feat-wellness-posture-dolphin .button-shelf {
+  display: flex;
+  gap: 10px;
+}
+
+.feat-wellness-posture-dolphin .dolphin-btn {
+  border-radius: 999px;
+  border: 1px solid var(--glass-rim);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 18px;
+  font-size: 13px;
+  transition: transform 0.15s ease;
+}
+
+.feat-wellness-posture-dolphin .dolphin-btn:active {
+  transform: translateY(1px);
+}
+
+.feat-wellness-posture-dolphin .arch-btn {
+  background: radial-gradient(circle at 50% 20%, #afc3ce 0%, #6d8391 100%);
+  color: #ffffff;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.7);
+}
+
+.feat-wellness-posture-dolphin .upright-btn {
+  background: radial-gradient(circle at 50% 25%, #5ee7ff 0%, #00c8e6 60%, #1e90d6 100%);
+  color: #0b4f8a;
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.9), 0 4px 12px rgba(0, 200, 230, 0.4);
+}
+
+.feat-wellness-posture-dolphin .support-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 79, 138, 0.45);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  border-radius: 12px;
+}
+
+.feat-wellness-posture-dolphin .support-modal-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(227, 246, 255, 0.95));
+  border: 2px solid var(--aqua-bright);
+  box-shadow: 0 12px 30px rgba(0, 200, 230, 0.5);
+  border-radius: 16px;
+  padding: 16px;
+  max-width: 290px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+}
+
+.feat-wellness-posture-dolphin .modal-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--sky-deep);
+}
+
+.feat-wellness-posture-dolphin .modal-body {
+  font-size: 12px;
+  color: #0b4f8a;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+.feat-wellness-posture-dolphin .confirm-btn {
+  background: radial-gradient(circle at 50% 25%, #00c8e6 0%, #1e90d6 100%);
+  color: #ffffff;
+  padding: 8px 14px;
+  font-size: 12px;
+}
+
+.feat-wellness-posture-dolphin .posture-disclaimer {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 4px;
+}
+
+@keyframes featDolphinBob {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-4px);
+  }
+}
