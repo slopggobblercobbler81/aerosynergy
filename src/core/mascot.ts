@@ -69,6 +69,10 @@ export const mascot = {
     return list[idx];
   },
 
+  getPhrase(_category?: string): string {
+    return this.say('supportive');
+  },
+
   image(mood: MascotMood = 'happy'): string {
     return generateDeweySvgDataUri(mood);
   },

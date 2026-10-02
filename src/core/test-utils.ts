@@ -14,6 +14,7 @@ export function stubProps(featureId: string, overrides: Partial<FeatureProps> = 
     mascot: {
       say: (mood) => mascot.say(mood as any),
       image: (mood) => mascot.image(mood as any),
+      getPhrase: (cat) => mascot.getPhrase(cat),
     },
     theme: {
       '--sky-deep': '#0B4F8A',

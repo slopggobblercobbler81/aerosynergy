@@ -1,16 +1,15 @@
-import React from 'react';
+// Core Type Contracts per §6.2, §6.3, §14.2
 
 export type FeatureCategory =
   | 'productivity'
   | 'wellness'
-  | 'ai-insights'
-  | 'gadgets'
-  | 'media-ambience'
-  | 'gamification'
-  | 'personalization'
-  | 'lore-easter-eggs'
+  | 'slop'
   | 'meta'
-  | 'synergy';
+  | 'creativity'
+  | 'utility'
+  | 'ai-insights'
+  | 'lore'
+  | 'games';
 
 export interface FeatureSetting {
   key: string;
@@ -52,6 +51,7 @@ export interface FeatureProps {
   mascot: {
     say: (mood?: 'happy' | 'proud' | 'supportive' | 'hydrating') => string;
     image: (mood?: 'happy' | 'proud' | 'supportive' | 'hydrating') => string;
+    getPhrase?: (category?: string) => string;
   };
   theme: Record<string, string>;
   hush: boolean;
@@ -62,15 +62,14 @@ export interface FeatureProps {
 export interface FeatureManifest {
   id: string;
   title: string;
-  category: FeatureCategory;
   description: string;
-  icon: string;
-  author: string;
-  issue: number;
+  category: FeatureCategory;
+  icon: string; // Single emoji per §8.2
+  synergyScore: number; // 1-100
   redundantWith?: string[];
-  synergyScore: number;
-  component: () => Promise<{ default: React.ComponentType<FeatureProps> }>;
+  chaosCard?: string;
   settings?: FeatureSetting[];
   onboarding?: OnboardingStep[];
   achievements?: AchievementDef[];
+  component: () => Promise<{ default: React.ComponentType<FeatureProps> }>;
 }
