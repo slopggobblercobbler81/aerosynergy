@@ -1,0 +1,46 @@
+name: Build & Nightly Packaging 📦✨
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-packages:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository 🫧
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js LTS 🐬
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies 📦
+        run: npm ci
+
+      - name: Build Web & Electron Renderer 🏗️
+        run: npm run build
+
+      - name: Package Portable Executable 🚀
+        run: npx electron-builder --win portable --publish never
+
+      - name: Verify Executable Size Floor (<500MB) 🛡️
+        shell: pwsh
+        run: |
+          $exe = Get-ChildItem -Path "dist-electron-package" -Filter "*.exe" -Recurse | Select-Object -First 1
+          if ($exe) {
+            $sizeMB = $exe.Length / 1MB
+            Write-Host "Portable EXE built: $($exe.Name) ($([math]::Round($sizeMB, 2)) MB)"
+            if ($sizeMB -gt 500) {
+              Write-Error "🚨 Portable EXE exceeds 500 MB limit per §16 performance floor!"
+              exit 1
+            }
+          }
+
+      - name: Upload Build Artifacts 💎
+        uses: actions/upload-artifact@v4
+        with:
+          name: aerosynergy-nightly
+          path: dist-electron-package/*.exe

@@ -1,0 +1,49 @@
+name: Release Workflow 🐬🚀
+
+on:
+  push:
+    paths:
+      - 'RELEASE_VERSION'
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository 🫧
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js LTS 🐬
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies 📦
+        run: npm ci
+
+      - name: Compile Unified Changelog 📜
+        run: npx tsx scripts/compile-changelog.ts
+
+      - name: Build Web & Desktop 🏗️
+        run: npm run build
+
+      - name: Package Windows Portable EXE 🚀
+        run: npx electron-builder --win portable --publish never
+
+      - name: Read Release Version 💎
+        id: get_version
+        shell: pwsh
+        run: |
+          $ver = Get-Content RELEASE_VERSION -Raw
+          Write-Host "VERSION=$ver"
+          "VERSION=$ver" >> $env:GITHUB_OUTPUT
+
+      - name: Create GitHub Release 🌅
+        uses: softprops/action-gh-release@v2
+        with:
+          name: ${{ steps.get_version.outputs.VERSION }}
+          tag_name: v1.0.0
+          body_path: CHANGELOG.md
+          files: dist-electron-package/*.exe
