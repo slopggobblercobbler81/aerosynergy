@@ -1,6 +1,6 @@
 {
   "name": "aerosynergy",
-  "version": "1.0.0",
+  "version": "0.9.0-preview.1",
   "private": true,
   "description": "AeroSynergy Ultra 365 ✨ Cloud Bubble Edition",
   "main": "dist-electron/main.cjs",
@@ -11,6 +11,7 @@
     "build:web": "vite build",
     "build:electron": "esbuild electron/main.ts --bundle --platform=node --target=node20 --outfile=dist-electron/main.cjs --external:electron && esbuild electron/preload.ts --bundle --platform=node --target=node20 --outfile=dist-electron/preload.cjs --external:electron",
     "test": "vitest run",
+    "test:e2e": "vitest run --config vitest.config.e2e.ts",
     "test:watch": "vitest",
     "validate": "tsx scripts/validate-features.ts",
     "compile:changelog": "tsx scripts/compile-changelog.ts",
