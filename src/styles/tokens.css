@@ -1,51 +1,173 @@
-/* 27 Canonical Design Tokens per §7.1 */
+/* ═══════════════════════════════════════════════════════════════════════════
+   AEROSYNERGY ULTRA 365 ✨ CLOUD BUBBLE EDITION
+   Frutiger Aero Design System — Canonical Design Tokens per §7.1, §7.4
+   Authored by: Dr. Glossandra Luminara 🌈✨ (Glossmaster)
+   "The slop is the style, never the stability." 🌊💎
+   ═══════════════════════════════════════════════════════════════════════════ */
+
 :root {
-  /* Sky & Deep Blues */
-  --sky-deep: #0B4F8A;
-  --sky-morning: #1E90D6;
-  --sky-clear: #4FC3F7;
-  --sky-horizon: #A6E1FF;
-  --sky-dawn: #E3F6FF;
+  /* ── 27 CANONICAL DESIGN TOKENS (§7.1) ─────────────────────────────────── */
 
-  /* Aqua & Glows */
-  --aqua-bright: #00C8E6;
-  --aqua-glow: #5EE7FF;
-  --aqua-mist: #B3F0FF;
+  /* Sky & Deep Blues (1–5) */
+  --sky-deep: #0B4F8A;          /* Deep cerulean; window titles, primary headings */
+  --sky-morning: #1E90D6;       /* Primary sky blue; action buttons, active tab indicators */
+  --sky-clear: #4FC3F7;         /* Cyan accent; clickable links, secondary badges */
+  --sky-horizon: #A6E1FF;       /* Pale sky blue; input borders, panel fills */
+  --sky-dawn: #E3F6FF;          /* Lightest blue wash; app window background, splash baseline */
 
-  /* Glass Fills & Rims */
-  --glass-white: rgba(255, 255, 255, 0.55);
-  --glass-frost: rgba(235, 248, 255, 0.75);
-  --glass-rim: rgba(255, 255, 255, 0.85);
+  /* Aqua & Glows (6–8) */
+  --aqua-bright: #00C8E6;       /* Aqua accent; primary orb gradients, interactive highlights */
+  --aqua-glow: #5EE7FF;         /* Vivid cyan glow; focus rings (:focus-visible), neon rim lights */
+  --aqua-mist: #B3F0FF;         /* Soft panel tint; translucent card backgrounds */
 
-  /* Chrome Gradients */
-  --chrome-light: #E8F0F5;
-  --chrome-mid: #AFC3CE;
-  --chrome-deep: #6D8391;
+  /* Glass Fills & Rims (9–11) */
+  --glass-white: rgba(255, 255, 255, 0.55); /* Primary translucent glass panel background */
+  --glass-frost: rgba(235, 248, 255, 0.75); /* Dense frosted glass for cards and dialogs */
+  --glass-rim: rgba(255, 255, 255, 0.85);   /* 1px inner specular highlight border */
 
-  /* Nature & Accents */
-  --lime-fresh: #7BE05A;
-  --grass-meadow: #3D9B32;
-  --leaf-shadow: #1F5C1F;
-  --sunset-amber: #FFB55C;
-  --sunset-coral: #FF8A70;
-  --sunset-lavender: #C6A5F2;
+  /* Chrome Gradients (12–14) */
+  --chrome-light: #E8F0F5;      /* Metallic chrome top highlight */
+  --chrome-mid: #AFC3CE;        /* Metallic chrome midpoint gradient stop */
+  --chrome-deep: #6D8391;       /* Metallic chrome dark bottom stop & text shadows */
 
-  /* Aurora Gradient Stops */
-  --aurora-1: #35E0C8;
-  --aurora-2: #57B9FF;
-  --aurora-3: #A18CFF;
+  /* Nature & Accents (15–20) */
+  --lime-fresh: #7BE05A;        /* Vibrant lime green; success states, positive indicators */
+  --grass-meadow: #3D9B32;      /* Meadow green; eco accents, streak tracker foliage */
+  --leaf-shadow: #1F5C1F;       /* Deep forest green; plant shadows, nature contrast */
+  --sunset-amber: #FFB55C;      /* Warm amber; warnings, notifications, evening glow */
+  --sunset-coral: #FF8A70;      /* Soft coral orange; gentle urgent alerts, high-priority tasks */
+  --sunset-lavender: #C6A5F2;   /* Pastel lavender; dusk horizon, easter-egg accents */
 
-  /* Text & Scrims */
-  --text-primary: #0A2A43;
-  --text-on-glass: #0A2A43;
-  --text-muted: #3E6B8C;
-  --scrim: rgba(10, 42, 67, 0.35);
+  /* Aurora Gradient Stops (21–23) */
+  --aurora-1: #35E0C8;          /* Turquoise; northern lights start stop */
+  --aurora-2: #57B9FF;          /* Cerulean; northern lights mid stop */
+  --aurora-3: #A18CFF;          /* Violet; northern lights end stop */
+
+  /* Text & Contrast Scrims (24–27) */
+  --text-primary: #0A2A43;      /* Dark navy; body text on light backgrounds (contrast > 7:1) */
+  --text-on-glass: #0A2A43;     /* High-contrast text rendered over glass panels */
+  --text-muted: #3E6B8C;        /* Medium slate blue; subtitles, captions, timestamps */
+  --scrim: rgba(10, 42, 67, 0.35); /* Contrast scrim overlay placed behind text over bright gloss */
+
+  /* ── EXTENDED CANONICAL SYSTEM TOKENS ─────────────────────────────────── */
+
+  /* Shadow Tokens */
   --shadow-soft: rgba(11, 79, 138, 0.25);
+  --shadow-gloss: 0 8px 32px rgba(11, 79, 138, 0.22), 0 2px 6px rgba(0, 200, 230, 0.15);
+  --shadow-orb: 0 6px 14px rgba(11, 79, 138, 0.25);
+  --shadow-deep: 0 16px 40px rgba(10, 42, 67, 0.35);
 
-  /* Motion Tokens */
+  /* Corner Radii Tokens (§7.1) */
+  --radius-pill: 999px;
+  --radius-panel: 18px;
+  --radius-card: 14px;
+  --radius-sm: 8px;
+
+  /* Layering & Z-Index Tokens (§7.1) */
+  --z-base: 1;
+  --z-window: 10;
+  --z-toast: 100;
+  --z-modal: 1000;
+
+  /* Typography Tokens (§7.6) */
+  --font-display: 'Nunito', system-ui, -apple-system, sans-serif;
+  --font-body: 'Open Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Consolas', 'Courier New', monospace;
+
+  /* Motion Timing & Easing Tokens (§7.4) */
   --dur-fast: 150ms;
   --dur-med: 320ms;
   --dur-slow: 900ms;
-  --ease-bubble: cubic-bezier(.34, 1.56, .64, 1);
-  --ease-ripple: cubic-bezier(.2, .8, .2, 1);
+  --dur-ambient: 1800ms;
+  --ease-bubble: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-ripple: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* ── CANONICAL KEYFRAME ANIMATIONS (§7.4) ─────────────────────────────────── */
+
+/* 1. Gentle Bubble Bobbing */
+@keyframes bubble-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+/* 2. Expanding Click Ripple */
+@keyframes ripple-on-click {
+  0% {
+    transform: scale(0.2);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
+
+/* 3. Gloss Shimmer Sweep */
+@keyframes shimmer-sweep {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(250%) skewX(-20deg);
+  }
+}
+
+/* 4. Confetti Burst Particle Simulation */
+@keyframes confetti-burst {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx, 60px), var(--ty, 120px)) scale(0.2) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* 5. Aurora Ribbon Undulation */
+@keyframes aurora-wave {
+  0%, 100% {
+    transform: scaleY(1) translateY(0);
+    opacity: 0.75;
+  }
+  50% {
+    transform: scaleY(1.25) translateY(-12px);
+    opacity: 0.92;
+  }
+}
+
+/* 6. Parametric Swimming Fish Drift */
+@keyframes fish-swim {
+  0% {
+    transform: translateX(-120px) translateY(0) scaleX(1);
+  }
+  48% {
+    transform: translateX(calc(100vw + 60px)) translateY(-15px) scaleX(1);
+  }
+  50% {
+    transform: translateX(calc(100vw + 60px)) translateY(-15px) scaleX(-1);
+  }
+  98% {
+    transform: translateX(-120px) translateY(10px) scaleX(-1);
+  }
+  100% {
+    transform: translateX(-120px) translateY(0) scaleX(1);
+  }
+}
+
+/* 7. Caustic Water Shimmer */
+@keyframes caustic-shimmer {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scale(1.05) rotate(1deg);
+  }
 }
