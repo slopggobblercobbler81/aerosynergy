@@ -1,0 +1,223 @@
+/* Scoped styles for wellness-hydration-orb-2 per §7.2, §14.2 */
+
+.feat-wellness-hydration-orb-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+  padding: 8px;
+}
+
+.feat-wellness-hydration-orb-2 .tribute-badge {
+  font-size: 11px;
+  color: var(--sky-deep);
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid var(--glass-rim);
+  border-radius: 999px;
+  padding: 4px 12px;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+.feat-wellness-hydration-orb-2 .dual-orbs-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 6px 0;
+}
+
+.feat-wellness-hydration-orb-2 .orb-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.feat-wellness-hydration-orb-2 .orb-glass {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  animation: featTwinOrbFloat 3.5s ease-in-out infinite alternate;
+}
+
+.feat-wellness-hydration-orb-2 .primary-sphere {
+  background: radial-gradient(circle at 40% 30%, #a6e1ff 0%, #1e90d6 60%, #0b4f8a 100%);
+  box-shadow:
+    0 8px 20px rgba(0, 200, 230, 0.4),
+    inset 0 2px 5px rgba(255, 255, 255, 0.9);
+}
+
+.feat-wellness-hydration-orb-2 .reserve-sphere {
+  background: radial-gradient(circle at 40% 30%, #5ee7ff 0%, #00c8e6 60%, #0b4f8a 100%);
+  box-shadow:
+    0 8px 20px rgba(94, 231, 255, 0.4),
+    inset 0 2px 5px rgba(255, 255, 255, 0.9);
+  animation-delay: 0.8s;
+}
+
+.feat-wellness-hydration-orb-2.calm-mode .orb-glass {
+  animation: none !important;
+}
+
+.feat-wellness-hydration-orb-2 .orb-fluid {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: height 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border-top: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.feat-wellness-hydration-orb-2 .alpha-fluid {
+  background: linear-gradient(180deg, rgba(79, 195, 247, 0.85), rgba(11, 79, 138, 0.95));
+}
+
+.feat-wellness-hydration-orb-2 .beta-fluid {
+  background: linear-gradient(180deg, rgba(0, 200, 230, 0.85), rgba(11, 79, 138, 0.95));
+}
+
+.feat-wellness-hydration-orb-2 .orb-highlight {
+  position: absolute;
+  top: 8px;
+  left: 14px;
+  width: 32px;
+  height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 100%);
+  transform: rotate(-25deg);
+  pointer-events: none;
+}
+
+.feat-wellness-hydration-orb-2 .orb-inner-text {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feat-wellness-hydration-orb-2 .orb-sym {
+  font-size: 18px;
+}
+
+.feat-wellness-hydration-orb-2 .orb-val {
+  font-size: 16px;
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(11, 79, 138, 0.8);
+}
+
+.feat-wellness-hydration-orb-2 .orb-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--sky-deep);
+}
+
+.feat-wellness-hydration-orb-2 .sync-tide-indicator {
+  font-size: 14px;
+  color: var(--sky-morning);
+  animation: featTwinTidePulse 2s ease-in-out infinite;
+}
+
+.feat-wellness-hydration-orb-2.calm-mode .sync-tide-indicator {
+  animation: none !important;
+}
+
+.feat-wellness-hydration-orb-2 .stats-row {
+  display: flex;
+  justify-content: center;
+}
+
+.feat-wellness-hydration-orb-2 .stat-pill {
+  font-size: 13px;
+  color: var(--sky-deep);
+  background: rgba(255, 255, 255, 0.6);
+  padding: 4px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--glass-rim);
+}
+
+.feat-wellness-hydration-orb-2 .mascot-quote {
+  font-size: 13px;
+  color: var(--sky-deep);
+  background: rgba(255, 255, 255, 0.7);
+  padding: 8px 14px;
+  border-radius: 12px;
+  font-style: italic;
+  border: 1px solid var(--glass-rim);
+  max-width: 290px;
+}
+
+.feat-wellness-hydration-orb-2 .button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.feat-wellness-hydration-orb-2 .glow-btn {
+  border-radius: 999px;
+  border: 1px solid var(--glass-rim);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 16px;
+  font-size: 12px;
+  transition: transform 0.15s ease;
+}
+
+.feat-wellness-hydration-orb-2 .glow-btn:active {
+  transform: translateY(1px);
+}
+
+.feat-wellness-hydration-orb-2 .primary-action {
+  background: radial-gradient(circle at 50% 25%, #4fc3f7 0%, #1e90d6 100%);
+  color: #ffffff;
+  box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.8), 0 3px 10px rgba(30, 144, 214, 0.4);
+}
+
+.feat-wellness-hydration-orb-2 .reserve-action {
+  background: radial-gradient(circle at 50% 25%, #5ee7ff 0%, #00c8e6 100%);
+  color: #0b4f8a;
+  box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.9), 0 3px 10px rgba(0, 200, 230, 0.4);
+}
+
+.feat-wellness-hydration-orb-2 .reset-action {
+  background: radial-gradient(circle at 50% 20%, #afc3ce 0%, #6d8391 100%);
+  color: #ffffff;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.7);
+}
+
+.feat-wellness-hydration-orb-2 .legal-disclaimer {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 4px;
+}
+
+@keyframes featTwinOrbFloat {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes featTwinTidePulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
