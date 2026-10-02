@@ -1,0 +1,199 @@
+/* Scoped styles for wellness-breathing-bubble per §7.2, §14.2 */
+
+.feat-wellness-breathing-bubble {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  padding: 8px;
+}
+
+.feat-wellness-breathing-bubble .breath-header {
+  margin-bottom: 2px;
+}
+
+.feat-wellness-breathing-bubble .pattern-pill {
+  font-size: 11px;
+  color: var(--sky-deep);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--glass-rim);
+  border-radius: 999px;
+  padding: 4px 14px;
+}
+
+.feat-wellness-breathing-bubble .bubble-arena {
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 6px 0;
+}
+
+.feat-wellness-breathing-bubble .living-bubble {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: relative;
+  background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.85) 0%, rgba(94, 231, 255, 0.6) 40%, rgba(30, 144, 214, 0.75) 100%);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow:
+    0 8px 24px rgba(0, 200, 230, 0.45),
+    inset 0 3px 6px rgba(255, 255, 255, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feat-wellness-breathing-bubble.calm-mode .living-bubble {
+  transition: none !important;
+  transform: none !important;
+}
+
+.feat-wellness-breathing-bubble .bubble-iridescence {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(from 180deg at 50% 50%, rgba(255, 255, 255, 0.3), rgba(166, 225, 255, 0.4), rgba(179, 240, 255, 0.2), rgba(255, 255, 255, 0.3));
+  pointer-events: none;
+}
+
+.feat-wellness-breathing-bubble .bubble-specular {
+  position: absolute;
+  top: 10px;
+  left: 18px;
+  width: 32px;
+  height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 100%);
+  transform: rotate(-30deg);
+  pointer-events: none;
+}
+
+.feat-wellness-breathing-bubble .bubble-inner-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #0b4f8a;
+}
+
+.feat-wellness-breathing-bubble .bubble-phase-icon {
+  font-size: 20px;
+}
+
+.feat-wellness-breathing-bubble .bubble-countdown {
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.1;
+  font-family: var(--font-heading);
+}
+
+.feat-wellness-breathing-bubble .bubble-phase-name {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.feat-wellness-breathing-bubble .breath-instruction {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--sky-deep);
+  min-height: 22px;
+}
+
+.feat-wellness-breathing-bubble .rowing-lagoon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: rgba(227, 246, 255, 0.65);
+  border: 1px solid var(--glass-rim);
+  border-radius: 12px;
+  padding: 4px 10px;
+}
+
+.feat-wellness-breathing-bubble .rowing-crew {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feat-wellness-breathing-bubble .rowing-active {
+  animation: featRowingBob 2s ease-in-out infinite alternate;
+}
+
+.feat-wellness-breathing-bubble.calm-mode .rowing-active {
+  animation: none !important;
+}
+
+.feat-wellness-breathing-bubble .rowing-caption {
+  font-size: 10px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.feat-wellness-breathing-bubble .cycles-counter {
+  font-size: 12px;
+  color: var(--sky-deep);
+}
+
+.feat-wellness-breathing-bubble .dewey-advice {
+  font-size: 12px;
+  color: var(--sky-deep);
+  background: rgba(255, 255, 255, 0.7);
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-style: italic;
+  border: 1px solid var(--glass-rim);
+  max-width: 280px;
+}
+
+.feat-wellness-breathing-bubble .controls-row {
+  display: flex;
+  gap: 10px;
+}
+
+.feat-wellness-breathing-bubble .bubble-btn {
+  border-radius: 999px;
+  border: 1px solid var(--glass-rim);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 20px;
+  font-size: 13px;
+  transition: transform 0.15s ease;
+}
+
+.feat-wellness-breathing-bubble .bubble-btn:active {
+  transform: translateY(1px);
+}
+
+.feat-wellness-breathing-bubble .primary-ctrl {
+  background: radial-gradient(circle at 50% 25%, #5ee7ff 0%, #00c8e6 60%, #1e90d6 100%);
+  color: #0b4f8a;
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.9), 0 4px 12px rgba(0, 200, 230, 0.35);
+}
+
+.feat-wellness-breathing-bubble .reset-ctrl {
+  background: radial-gradient(circle at 50% 20%, #afc3ce 0%, #6d8391 100%);
+  color: #ffffff;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.7);
+}
+
+.feat-wellness-breathing-bubble .disclaimer-note {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 2px;
+}
+
+@keyframes featRowingBob {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-2px) rotate(1deg);
+  }
+}
