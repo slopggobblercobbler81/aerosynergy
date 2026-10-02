@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 
-interface FloatingBubblesProps {
+export interface FloatingBubblesProps {
   calm?: boolean;
+  transparent?: boolean;
 }
 
 interface BubbleParticle {
@@ -15,7 +16,7 @@ interface BubbleParticle {
   wobbleSpeed: number;
 }
 
-export const FloatingBubbles: React.FC<FloatingBubblesProps> = ({ calm = false }) => {
+export const FloatingBubbles: React.FC<FloatingBubblesProps> = ({ calm = false, transparent = false }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const animFrameId = useRef<number | null>(null);
   const isPaused = useRef<boolean>(false);
@@ -142,7 +143,9 @@ export const FloatingBubbles: React.FC<FloatingBubblesProps> = ({ calm = false }
         height: '100vh',
         pointerEvents: 'none',
         zIndex: 0,
-        background: 'linear-gradient(180deg, #E3F6FF 0%, #A6E1FF 35%, #4FC3F7 70%, #1E90D6 100%)',
+        background: transparent
+          ? 'transparent'
+          : 'linear-gradient(180deg, #E3F6FF 0%, #A6E1FF 35%, #4FC3F7 70%, #1E90D6 100%)',
         overflow: 'hidden',
       }}
     >
